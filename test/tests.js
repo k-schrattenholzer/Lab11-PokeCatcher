@@ -1,1 +1,1 @@
-import './example.test.js';
+import './get-random-poke.test.js';
