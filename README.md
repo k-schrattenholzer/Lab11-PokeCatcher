@@ -1,9 +1,11 @@
 ## Making a plan
 
 # Catcher page
-User should be able to select one of 3 DIFFERENT pokemon and click the catch button. Then show the user 3 more (different) pokemon. After 10 pokemon are caught, redirect to the results page.
+User should be able to select one of 3 DIFFERENT pokemon and click the catch button.
+Then show the user 3 more (different) pokemon.
+After 10 pokemon are caught, redirect to the results page.
 
-## HTML Setup
+## HTML Setup --
 Button
 3 divs with images to show the pokemon
 Radio buttons (hidden like in the rock paper scissors app)
@@ -12,6 +14,7 @@ Radio buttons (hidden like in the rock paper scissors app)
 How many times has the user caught a pokemon
 
 let pokeCaught = 0
+
 STRETCH: we could derive this from our other data, just counting how many total pokemon the user has already caught: howManyCaughtSoFar()
 
 ## Local Storage
