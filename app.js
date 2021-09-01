@@ -1,10 +1,13 @@
 import { getRandomPokemon, encounterPokemon, catchPokemon } from './utils.js';
 
 
-let currentPokes = getRandomPokemon();
+let threePokeBabies = getRandomPokemon();
+let pokeCaught = 0;
 const catchButton = document.getElementById('catch-button');
 
-catchButton.addEventListener('click', () => {
+catchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    pokeCaught++;
     const caughtPoke = document.querySelectorAll('pokemons');
     caughtPoke.checked = true;
     catchPokemon(caughtPoke.id);
@@ -33,7 +36,7 @@ function renderPokemon(pokeArray) {
     encounterPokemon(pokeArray);
 }
 
-for (let pokies of currentPokes) {
+for (let pokies of threePokeBabies) {
 
     renderPokemon(pokies);
    

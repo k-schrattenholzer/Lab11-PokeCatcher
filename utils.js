@@ -63,14 +63,14 @@ export function encounterPokemon(object){
 export function catchPokemon(id){
 
     // getPokedex
-    const caughtArray = getPokedex();
-    const previouslyCaught = findById(caughtArray, id);
+    const pokeDex = getPokedex();
+    const previouslyCaught = findById(pokeDex, Number(id));
 
     // Increment the caught of this pokemon in local storage
     previouslyCaught.caught++;
-    
+
     // setPokedex
-    setPokedex(caughtArray);
+    setPokedex(pokeDex);
 }
 
 export function findById(myArray, id) {
