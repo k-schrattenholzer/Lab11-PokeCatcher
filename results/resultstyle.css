@@ -32,41 +32,6 @@ main {
     margin-bottom: calc(var(--footer-height));
 }
 
-section {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: calc(var(--footer-height));
-}
-
-div {
-    justify-content: center;
-}
-
-img {
-    border-radius: 25px;
-}
-
-[type=radio] { 
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* IMAGE STYLES */
-  [type=radio] + img {
-    cursor: pointer;
-  }
-  
-  /* CHECKED STYLES */
-  [type=radio]:checked + img {
-    background-color: goldenrod;
-  }
-
 footer {
     position: fixed;
     width: 100%;
@@ -76,14 +41,4 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
-}
-
-button {
-    margin: 25px;
-    border-radius: 15px;
-    transition: all ease-in-out .1s;
-}
-button:hover {
-    background-color: goldenrod;
-    transform:scale(1.2);
 }

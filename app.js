@@ -33,6 +33,7 @@ function renderPokemon(pokeBaby) {
 
     const pokeContainer = document.getElementById('poke-section');
     const pokeDiv = document.createElement('div');
+    const selectedLabel = document.createElement('label');
     const input = document.createElement('input');
     const img = document.createElement('img');
     const chooseTxt = document.createElement('p');
@@ -49,7 +50,8 @@ function renderPokemon(pokeBaby) {
 
 
     pokeContainer.append(pokeDiv);
-    pokeDiv.append(input, img, chooseTxt);
+    pokeDiv.append(selectedLabel);
+    selectedLabel.append(input, img, chooseTxt);
     encounterPokemon(pokeBaby.id);
 }
 
