@@ -1,5 +1,5 @@
 // IMPORT MODULES under test here:
-import { getRandomPokemon, encounterPokemon } from '../utils.js';
+import { getRandomPokemon, encounterPokemon, catchPokemon } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -54,6 +54,35 @@ test('should take in an id and update localStorage reflecting an added encounter
             caught: 1,
             name:'charmeleon'
         }
+    ];
+
+    const actual = JSON.parse(localStorage.getItem('POKEDEX'));
+
+    expect.deepEqual(actual, finalDex);
+});
+
+test('should take in an id and update localStorage reflecting an added catch', (expect) => {
+    const startDex = [
+        {
+            id: 2,
+            encounters: 3,
+            caught: 0,
+            name:'ivysaur'
+        },
+    ];
+
+    const stringedDex = JSON.stringify(startDex);
+    localStorage.setItem('POKEDEX', stringedDex);
+
+    catchPokemon(2);
+
+    const finalDex = [
+        {
+            id: 2,
+            encounters: 3,
+            caught: 1,
+            name:'ivysaur'
+        },
     ];
 
     const actual = JSON.parse(localStorage.getItem('POKEDEX'));
