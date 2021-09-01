@@ -19,13 +19,10 @@ export function getRandomPokemon() {
     return [pokemonData[randomPoke1], pokemonData[randomPoke2], pokemonData[randomPoke3]];   
 }
 
-    
-    // call encounterPokemon() on all 3 new pokemon
 
 // sets and stringifies the pokedex in local storage
 export function setPokedex(pokedex){
     const stringedDex = JSON.stringify(pokedex);
-
     localStorage.setItem('POKEDEX', stringedDex);
 }
     
@@ -43,48 +40,44 @@ export function getPokedex(){
 
 export function encounterPokemon(object){
     // getPokedex
-    const pokeDex = getPokedex();
-    
-    // If this is the first time, make a new object with { id: 5, encountered: 1, caught: 0 }]
+    const encounteredPoke = getPokedex();
+    const hasBeenEncountered = findById(encounteredPoke, object.id);
 
-    //do we need a findbyID here??
-    if (!pokeDex) {
-        let pokeArray = [];
-        const unseenPokeObj = {
+     // If the pokemon has been previously seen, just increment the times seen
+    if (hasBeenEncountered) {
+        hasBeenEncountered.encounters++;
+    }
+
+    // If this is the first time, make a new object with { id: 5, encountered: 1, caught: 0 }]
+    else {
+        const pokeObject = {
             id: object.id,
             encounters: 1,
-            caught: 0
-        };
-        pokeArray.push(unseenPokeObj);
-        setPokedex(pokeArray);
-        return;
+            caught: 0 };
+        encounteredPoke.push(pokeObject);
     }
-    // If the pokemon has been previously seen, just increment the times seen
-    pokeDex.forEach(item => {
-        if (object.id === item.id){
-            item.encounters += 1;
-            return item;
-        }
-        setPokedex(pokeArray);
-        return newPokeObj;
-    });
-    
-    // setPokedex
+    setPokedex(encounteredPoke);
 }
     
 
 export function catchPokemon(id){
+
     // getPokedex
-    // no need to check if it's been encountered. If you got this far, it has been encountered.
+    const caughtArray = getPokedex();
+    const previouslyCaught = findById(caughtArray, id);
+
     // Increment the caught of this pokemon in local storage
+    previouslyCaught.caught++;
+    
     // setPokedex
-    return [];
+    setPokedex(caughtArray);
 }
 
 export function findById(myArray, id) {
     for (let item of myArray) {
-        if (item.id === id) {
+        if (item.id === Number(id)) {
             return item;
         }
     }
 }
+            

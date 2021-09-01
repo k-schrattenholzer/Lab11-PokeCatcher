@@ -1,15 +1,17 @@
-import { getRandomPokemon, encounterPokemon } from './utils.js';
+import { getRandomPokemon, encounterPokemon, catchPokemon } from './utils.js';
 
-let pokeCaught = 0;
+
 let currentPokes = getRandomPokemon();
 const catchButton = document.getElementById('catch-button');
 
 catchButton.addEventListener('click', () => {
-    setPokedex(currentPokes);
-    //encounterPokemon();
+    const caughtPoke = document.querySelectorAll('pokemons');
+    caughtPoke.checked = true;
+    catchPokemon(caughtPoke.id);
 });
 
 function renderPokemon(pokeArray) {
+
   //grab & create needed elements
     const pokeContainer = document.getElementById('poke-section');
     const pokeDiv = document.createElement('div');
@@ -21,18 +23,18 @@ function renderPokemon(pokeArray) {
     pokeDiv.classList.add('poke-div');
     input.setAttribute('name', 'pokemons');
     input.setAttribute('type', 'radio');
+    input.setAttribute('class', 'selector');
     img.src = pokeArray.url_image;
     chooseTxt.textContent = `Choose ${pokeArray.pokemon}`;
 
   //display all
     pokeContainer.append(pokeDiv);
     pokeDiv.append(input, img, chooseTxt);
+    encounterPokemon(pokeArray);
 }
 
 for (let pokies of currentPokes) {
-    // encounterPokemon(pokies);
-    //render the random pokemon
+
     renderPokemon(pokies);
-    //send the random array to local storage as SEEN
    
 }
