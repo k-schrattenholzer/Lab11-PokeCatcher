@@ -3,5 +3,6 @@
     "cSpell.words": [
         "Pokedex",
         "pokemons"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

@@ -38,24 +38,24 @@ export function getPokedex(){
     return finalDex;
 }
 
-export function encounterPokemon(object){
-    // getPokedex
+export function encounterPokemon(id){
     const encounteredPoke = getPokedex();
-    const hasBeenEncountered = findById(encounteredPoke, object.id);
 
-     // If the pokemon has been previously seen, just increment the times seen
-    if (hasBeenEncountered) {
-        hasBeenEncountered.encounters++;
-    }
+    const pokesInDex = encounteredPoke
+        .find(pokie => Number(pokie.id) === Number(id));
 
-    // If this is the first time, make a new object with { id: 5, encountered: 1, caught: 0 }]
-    else {
-        const pokeObject = {
-            id: object.id,
+    if (pokesInDex) {
+        pokesInDex.encounters++;
+    } else {
+        const newPoke = pokemonData.find(pokie => Number(pokie.id) === Number(id));
+        encounteredPoke.push({
+            id,
             encounters: 1,
-            caught: 0 };
-        encounteredPoke.push(pokeObject);
+            caught: 0,
+            name: newPoke.pokemon
+        });
     }
+
     setPokedex(encounteredPoke);
 }
     
@@ -65,7 +65,7 @@ export function catchPokemon(id){
     // getPokedex
     const pokeDex = getPokedex();
     const previouslyCaught = findById(pokeDex, Number(id));
-
+    console.log(previouslyCaught);
     // Increment the caught of this pokemon in local storage
     previouslyCaught.caught++;
 
@@ -75,7 +75,7 @@ export function catchPokemon(id){
 
 export function findById(myArray, id) {
     for (let item of myArray) {
-        if (item.id === Number(id)) {
+        if (Number(item.id) === Number(id)) {
             return item;
         }
     }
