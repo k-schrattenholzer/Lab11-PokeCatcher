@@ -14,8 +14,8 @@ for (let pokies of threePokeBabies) {
 catchButton.addEventListener('click', (e) => {
     e.preventDefault();
     pokeEncounters++;
-    let caughtPoke = document.querySelectorAll('input:checked');
-    catchPokemon(caughtPoke.id);
+    let caughtPoke = document.querySelector('input[name="pokemons"]:checked').id;
+    catchPokemon(caughtPoke);
 });
 
 function renderPokemon(pokeBaby) {
@@ -25,12 +25,14 @@ function renderPokemon(pokeBaby) {
     const input = document.createElement('input');
     const img = document.createElement('img');
     const chooseTxt = document.createElement('p');
+    const pokeID = pokeBaby.id;
 
 
     pokeDiv.classList.add('poke-div');
     input.setAttribute('name', 'pokemons');
     input.setAttribute('type', 'radio');
     input.setAttribute('class', 'selector');
+    input.setAttribute('id', pokeID);
     img.src = pokeBaby.url_image;
     chooseTxt.textContent = `Choose ${pokeBaby.pokemon}`;
 
