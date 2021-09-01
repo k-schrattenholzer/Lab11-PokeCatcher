@@ -19,7 +19,7 @@ function renderPokemon(pokeArray) {
 
   //update created elements
     pokeDiv.classList.add('poke-div');
-    input.setAttribute("name", "pokemons");
+    input.setAttribute('name', 'pokemons');
     input.setAttribute('type', 'radio');
     img.src = pokeArray.url_image;
     chooseTxt.textContent = `Choose ${pokeArray.pokemon}`;
@@ -30,7 +30,7 @@ function renderPokemon(pokeArray) {
 }
 
 for (let pokies of currentPokes) {
-    encounterPokemon(pokies);
+    // encounterPokemon(pokies);
     //render the random pokemon
     renderPokemon(pokies);
     //send the random array to local storage as SEEN
