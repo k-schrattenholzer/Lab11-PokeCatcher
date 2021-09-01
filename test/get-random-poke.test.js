@@ -1,5 +1,5 @@
 // IMPORT MODULES under test here:
-import { getRandomPokemon, renderPokemon } from '../utils.js';
+import { getRandomPokemon, setPokedex } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -20,12 +20,34 @@ test('getRandomPokemon should return an array with three items, that are pokemon
     expect.equal(actual[2].id !== actual[0].id, true, 'the third and first pokes should have different ids');
 });
 
-test('renderPokemon should take in an array of three pokemon and return the correct HTML elements', (expect) => {
+// test('setPokedex should take an id and increment quantity of encounters', (expect) => {
+//     const pokeDexBefore = [{
+//         id: 4,
+//         quantity: 6,
+//     },
+//     {
+//         id: 7,
+//         quantity: 3,
+//     }
+//     ];
 
-    const expected = 
-    `<div class="poke-div"><input type="radio" name="poke"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"><p>'Choose bulbasaur'</p><input type="radio" name="poke"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png"><p>'Choose ivysaur'</p><input type="radio" name="poke"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"><p>'Choose charmander'</p></div>`;
+//     const pokeDexAfter = [{
+//         id: 4,
+//         quantity: 6,
+//     },
+//     {
+//         id: 7,
+//         quantity: 4,
+//     }
+//     ];
 
-    const actual = renderPokemon();
+//     const stringyDex = JSON.stringify(pokeDexBefore);
+//     localStorage.setItem('SEEN', stringyDex);
 
-    expect.equal(actual.outerHTML, expected);
-});
+//     setPokedex(7, 1);
+
+//     stringypokeDexAfter = localStorage.getItem('SEEN');
+//     const actual = JSON.parse(stringypokeDexAfter);
+
+//     expect.deepEqual(actual, pokeDexAfter);
+// });

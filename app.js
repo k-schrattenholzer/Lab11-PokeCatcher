@@ -1,12 +1,12 @@
-import { getRandomPokemon, setPokedex } from './utils.js';
+import { getRandomPokemon, encounterPokemon } from './utils.js';
 
-
+let pokeCaught = 0;
 let currentPokes = getRandomPokemon();
 const catchButton = document.getElementById('catch-button');
 
 catchButton.addEventListener('click', () => {
-    alert(`You chose that one for sure`);
-      //setPokedex()
+    setPokedex(currentPokes);
+    //encounterPokemon();
 });
 
 function renderPokemon(pokeArray) {
@@ -30,6 +30,9 @@ function renderPokemon(pokeArray) {
 }
 
 for (let pokies of currentPokes) {
+    encounterPokemon(pokies);
+    //render the random pokemon
     renderPokemon(pokies);
-    setPokedex(currentPokes);
+    //send the random array to local storage as SEEN
+   
 }

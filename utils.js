@@ -19,24 +19,54 @@ export function getRandomPokemon() {
     return [pokemonData[randomPoke1], pokemonData[randomPoke2], pokemonData[randomPoke3]];   
 }
 
-    // Whenever we find 3 new pokemon, we need to track that they have now been "seen"
+    
     // call encounterPokemon() on all 3 new pokemon
 
+// sets and stringifies the pokedex in local storage
 export function setPokedex(pokedex){
-    localStorage.setItem('SEEN', JSON.stringify(pokedex));
+    const stringedDex = JSON.stringify(pokedex);
+
+    localStorage.setItem('POKEDEX', stringedDex);
 }
     
-
+// retrieves and parses the pokedex in local storage
 export function getPokedex(){
-    // retrieves and parses the pokedex in local storage
-    return [];
+    
+    const stringedDex = localStorage.getItem('POKEDEX');
+    const finalDex = JSON.parse(stringedDex);
+
+    if (!stringedDex) {
+        return [];
+    }
+    return finalDex;
 }
 
-export function encounterPokemon(id){
-    return [];
+export function encounterPokemon(object){
     // getPokedex
+    const pokeDex = getPokedex();
+    
+    // If this is the first time, make a new object with { id: 5, encountered: 1, caught: 0 }]
+    if (!pokeDex) {
+        let pokeArray = [];
+        const unseenPokeObj = {
+            id: object.id,
+            encounters: 1,
+            caught: 0
+        };
+        pokeArray.push(unseenPokeObj);
+        setPokedex(newArray);
+        return;
+    }
     // If the pokemon has been previously seen, just increment the times seen
-    // If this is the first time, make a new object with { id: 5, encoutered: 1, caught: 0 }
+    pokeDex.forEach(item => {
+        if (object.id === item.id){
+            item.encounters += 1;
+            return item;
+        }
+        setPokedex(pokeArray);
+        return newPokeObj;
+    });
+    
     // setPokedex
 }
     
