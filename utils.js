@@ -46,6 +46,8 @@ export function encounterPokemon(object){
     const pokeDex = getPokedex();
     
     // If this is the first time, make a new object with { id: 5, encountered: 1, caught: 0 }]
+
+    //do we need a findbyID here??
     if (!pokeDex) {
         let pokeArray = [];
         const unseenPokeObj = {
@@ -54,7 +56,7 @@ export function encounterPokemon(object){
             caught: 0
         };
         pokeArray.push(unseenPokeObj);
-        setPokedex(newArray);
+        setPokedex(pokeArray);
         return;
     }
     // If the pokemon has been previously seen, just increment the times seen
@@ -78,4 +80,11 @@ export function catchPokemon(id){
     // setPokedex
     return [];
 }
-   
+
+export function findById(myArray, id) {
+    for (let item of myArray) {
+        if (item.id === id) {
+            return item;
+        }
+    }
+}
