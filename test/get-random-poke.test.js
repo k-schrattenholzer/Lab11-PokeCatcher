@@ -1,5 +1,5 @@
 // IMPORT MODULES under test here:
-import { getRandomPokemon, setPokedex } from '../utils.js';
+import { getRandomPokemon } from '../utils.js';
 
 const test = QUnit.test;
 
