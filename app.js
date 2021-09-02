@@ -4,7 +4,7 @@ import { getRandomPokemon, encounterPokemon, catchPokemon } from './utils.js';
 let threePokeBabies = getRandomPokemon();
 let pokeEncounters = 0;
 const pokeContainer = document.getElementById('poke-section');
-const catchCounter = document.getElementById("catch-count");
+const catchCounter = document.getElementById('catch-count');
 
 const catchButton = document.getElementById('catch-button');
 
