@@ -4,12 +4,15 @@ import { getRandomPokemon, encounterPokemon, catchPokemon } from './utils.js';
 let threePokeBabies = getRandomPokemon();
 let pokeEncounters = 0;
 const pokeContainer = document.getElementById('poke-section');
+const catchCounter = document.getElementById("catch-count");
 
 const catchButton = document.getElementById('catch-button');
 
 for (let pokies of threePokeBabies) {
     renderPokemon(pokies);
 }
+
+
 
 catchButton.addEventListener('click', () => {
     // console.log(pokeEncounters);
@@ -20,7 +23,7 @@ catchButton.addEventListener('click', () => {
     if (!caughtPoke.value) {
         alert(`Please select a pokeBuddy`);
     }
-    if (pokeEncounters > 10) {
+    if (pokeEncounters > 9) {
         window.location.href = './results/index.html';
     } else {
         pokeContainer.innerHTML = '';
@@ -30,6 +33,7 @@ catchButton.addEventListener('click', () => {
             renderPokemon(pokies);
         }
     }
+    catchCounter.textContent = `catch count: ${pokeEncounters}`;
 });
 
 function renderPokemon(pokeBaby) {
@@ -49,7 +53,7 @@ function renderPokemon(pokeBaby) {
     input.setAttribute('class', 'selector');
     input.setAttribute('value', pokeID);
     img.src = pokeBaby.url_image;
-    chooseTxt.textContent = `Choose ${pokeBaby.pokemon}`;
+    chooseTxt.textContent = `${pokeBaby.pokemon}`;
 
 
     pokeContainer.append(pokeDiv);

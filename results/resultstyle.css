@@ -33,6 +33,7 @@ main {
     margin-bottom: calc(var(--footer-height));
 }
 
+
 footer {
     position: fixed;
     width: 100%;

@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
 
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>
-            Can you catch 'em?
-        </h1>
+      <h1>Can you catch 'em?</h1>
     </header>
-
     <main>
-        <section id="poke-section">
+      <section class="readme">
+        <ul>
+          <li>select one of the pokemon below</li>
+          <li>click catch to add it to your collection</li>
+          <li>
+            after 10 catches, you'll head to the results page to see how you did
+          </li>
+        </ul>
+      </section>
 
-        </section>
+      <hr />
+
+      <section id="poke-section"></section>
+      <section class="catch">
         <div>
-            <button id="catch-button">CATCH</button>
+          <button id="catch-button">CATCH</button>
         </div>
+        <div>
+          <p id="catch-count"></p>
+        </div>
+      </section>
     </main>
 
-    <footer>
-    </footer>
+    <footer></footer>
     <script type="module" src="./app.js"></script>
     <script type="module" src="./utils.js"></script>
-</body>
-
+  </body>
 </html>
