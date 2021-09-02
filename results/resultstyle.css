@@ -127,10 +127,10 @@ footer {
 
 button {
     margin: 25px;
-    padding: 5px;
+    padding: 30px;
     border: 2px solid black;
-    border-radius: 50%;
-    transition: all ease-in-out .1s;
+    border-radius: 70%;
+    transition: all ease-in-out .75 s;
     background-color: var(--color5);
     color: white;
     text-shadow: 1px 1px #000000ce;
@@ -138,6 +138,6 @@ button {
 }
 button:hover {
     background-color: var(--color5);
-    transform: perspective();
+    transform: rotatez(360deg);
 
 }

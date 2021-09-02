@@ -24,7 +24,7 @@ const pokesCaught = pokeDex
     .map(({ caught }) => caught);
 
 Chart.defaults.font.family = "'Press Start 2P', cursive";
-Chart.defaults.font.size = 24;
+Chart.defaults.font.size = 16;
 Chart.defaults.plugins.legend = false;
 
 
