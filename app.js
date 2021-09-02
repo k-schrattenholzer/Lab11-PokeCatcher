@@ -1,40 +1,60 @@
 import { getRandomPokemon, encounterPokemon, catchPokemon } from './utils.js';
 
 
-let currentPokes = getRandomPokemon();
+let threePokeBabies = getRandomPokemon();
+let pokeEncounters = 0;
+const pokeContainer = document.getElementById('poke-section');
+
 const catchButton = document.getElementById('catch-button');
 
+for (let pokies of threePokeBabies) {
+    renderPokemon(pokies);
+}
+
 catchButton.addEventListener('click', () => {
-    const caughtPoke = document.querySelectorAll('pokemons');
-    caughtPoke.checked = true;
-    catchPokemon(caughtPoke.id);
+    // console.log(pokeEncounters);
+    pokeEncounters = pokeEncounters + 1;
+    let caughtPoke = document.querySelector('input[name="pokemons"]:checked');
+
+    catchPokemon(Number(caughtPoke.value));
+    if (!caughtPoke.value) {
+        alert(`Please select a pokeBuddy`);
+    }
+    if (pokeEncounters > 10) {
+        window.location.href = './results/index.html';
+    } else {
+        pokeContainer.innerHTML = '';
+        threePokeBabies = getRandomPokemon();
+
+        for (let pokies of threePokeBabies) {
+            renderPokemon(pokies);
+        }
+    }
 });
 
-function renderPokemon(pokeArray) {
+function renderPokemon(pokeBaby) {
 
-  //grab & create needed elements
     const pokeContainer = document.getElementById('poke-section');
     const pokeDiv = document.createElement('div');
+    const selectedLabel = document.createElement('label');
     const input = document.createElement('input');
     const img = document.createElement('img');
     const chooseTxt = document.createElement('p');
+    const pokeID = pokeBaby.id;
 
-  //update created elements
+
     pokeDiv.classList.add('poke-div');
     input.setAttribute('name', 'pokemons');
     input.setAttribute('type', 'radio');
     input.setAttribute('class', 'selector');
-    img.src = pokeArray.url_image;
-    chooseTxt.textContent = `Choose ${pokeArray.pokemon}`;
+    input.setAttribute('value', pokeID);
+    img.src = pokeBaby.url_image;
+    chooseTxt.textContent = `Choose ${pokeBaby.pokemon}`;
 
-  //display all
+
     pokeContainer.append(pokeDiv);
-    pokeDiv.append(input, img, chooseTxt);
-    encounterPokemon(pokeArray);
+    pokeDiv.append(selectedLabel);
+    selectedLabel.append(input, img, chooseTxt);
+    encounterPokemon(pokeBaby.id);
 }
 
-for (let pokies of currentPokes) {
-
-    renderPokemon(pokies);
-   
-}

@@ -5,34 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./resultstyle.css">
 
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h1>
-            Can you catch 'em?
-        </h1>
+        <div>
+            <h1>
+              How'd you do, trainer?
+            </h1>
+        </div>
+        <div>
+            <button id='home-button'>catch more</button>
+        </div>
+        
     </header>
 
     <main>
-        <section id="poke-section">
-
-        </section>
         <div>
-            <button id="catch-button">CATCH</button>
+            <canvas id="pokeEncounters" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="pokesCaught" width="400" height="400"></canvas>
         </div>
     </main>
 
     <footer>
     </footer>
+    <script type="module" src="./chart.js"></script>
     <script type="module" src="./app.js"></script>
-    <script type="module" src="./utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
