@@ -20,6 +20,9 @@ body {
     
     font-family: 'Press Start 2P', cursive;
     background-color: var(--color2);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
 main {
@@ -58,8 +61,8 @@ img {
   }
   
   /* IMAGE STYLES */
-  [type=radio] + img {
-    cursor: pointer;
+  [type=radio] + img:hover {
+    cursor: crosshair;
   }
   
   /* CHECKED STYLES */
