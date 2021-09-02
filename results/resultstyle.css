@@ -8,10 +8,12 @@ body {
     --color5: hsla(170, 28%, 95%, 1); */
 
     --color1: #96B6B4 ;
-    --color2: #afdbd4 ;
+    --color2: #d1b94d ;
     --color3: #d5f1ea;
-    --color4: #eef1f5;
+    --color4: #ffffff49;
     --color5: #52B0C5; 
+    --color6: #c94444; 
+    
     
     --header-height: 80px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
@@ -19,9 +21,12 @@ body {
     --footer-height: 25px;
     
     font-family: 'Press Start 2P', cursive;
-    background-color: var(--color4);
+    background-color: var(--color2);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    cursor: url('../assets/ditto.png');
 }
-
 
 main {
     display: flex;
@@ -33,14 +38,106 @@ main {
     margin-bottom: calc(var(--footer-height));
 }
 
+div > canvas {
+    background-color: #836f6fd3;
+    border-top: double 10px var(--color6);
+    border-bottom: double 10px var(--color6);
+    padding: 0px;
+    margin: 0px;
+}
+
+section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 0px;
+
+
+}
+
+.catch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+hr
+{
+  width: 100%;
+  height: 30px;
+  padding: 20px;
+  background-image:url('../assets/cute-poke-HR.png');
+  background-repeat: repeat-x;
+  border: 0;
+} 
+
+
+
+img {
+    border-radius: 200px;
+    padding:20px;
+    margin: 5px;
+    justify-content: center;
+}
+
+
+ul {
+    list-style-image: url("../assets/pokeball.gif");
+    list-style-type: square;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    margin: 10px 0px 0px 0px;
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + img:hover {
+    cursor: url('assets/ditto.png');
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    border-color: ;
+    border: 8px dotted rgba(255, 196, 0, 0.904);
+  }
 
 footer {
     position: fixed;
     width: 100%;
     bottom: 0;
     height: var(--footer-height);
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+button {
+    margin: 25px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 50%;
+    transition: all ease-in-out .1s;
+    background-color: var(--color5);
+    color: white;
+    text-shadow: 1px 1px #000000ce;
+    box-shadow: 1px 1px #000000;
+}
+button:hover {
+    background-color: var(--color5);
+    transform: perspective();
+
 }
