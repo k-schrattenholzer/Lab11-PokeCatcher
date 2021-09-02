@@ -17,12 +17,15 @@ catchButton.addEventListener('click', () => {
     let caughtPoke = document.querySelector('input[name="pokemons"]:checked');
 
     catchPokemon(Number(caughtPoke.value));
+    if (!caughtPoke.value) {
+        alert(`Please select a pokeBuddy`);
+    }
     if (pokeEncounters > 10) {
         window.location.href = './results/index.html';
     } else {
         pokeContainer.innerHTML = '';
         threePokeBabies = getRandomPokemon();
-        console.log(threePokeBabies);
+
         for (let pokies of threePokeBabies) {
             renderPokemon(pokies);
         }

@@ -1,4 +1,7 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import { getPokedex } from '../utils.js';
+
 
 const ctx1 = document.getElementById('pokeEncounters');
 const ctx2 = document.getElementById('pokesCaught');
@@ -19,7 +22,6 @@ const pokesEncountered = pokeDex
 const pokesCaught = pokeDex
     .filter(item => item.caught > 0)
     .map(({ caught }) => caught);
-
 
 Chart.defaults.font.family = "'Press Start 2P', cursive";
 Chart.defaults.font.size = 10;
