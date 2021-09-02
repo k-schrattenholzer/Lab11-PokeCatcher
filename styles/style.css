@@ -42,6 +42,8 @@ main {
     background-color: var(--color4 );
     border-top: double 10px var(--color6);
     border-bottom: double 10px var(--color6);
+    padding: 0px;
+    margin: 0px;
 }
 
 section {
@@ -51,7 +53,9 @@ section {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     margin-bottom: 0px;
+
 
 }
 
