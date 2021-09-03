@@ -1,5 +1,5 @@
 // IMPORT MODULES under test here:
-import { getRandomPokemon, encounterPokemon, catchPokemon } from '../utils.js';
+import { getRandomPokemon, encounterPokemon, catchPokemon, setPokedex, getPokedex } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -90,34 +90,45 @@ test('should take in an id and update localStorage reflecting an added catch', (
     expect.deepEqual(actual, finalDex);
 });
 
-// test('setPokedex should take an id and increment quantity of encounters', (expect) => {
-//     const pokeDexBefore = [{
-//         id: 4,
-//         quantity: 6,
-//     },
-//     {
-//         id: 7,
-//         quantity: 3,
-//     }
-//     ];
+test('setPokedex should take an object and set that item in local storage', (expect) => {
+    const expected = [{
+        id: 4,
+        quantity: 6,
+    },
+    {
+        id: 7,
+        quantity: 3,
+    }
+    ];
 
-//     const pokeDexAfter = [{
-//         id: 4,
-//         quantity: 6,
-//     },
-//     {
-//         id: 7,
-//         quantity: 4,
-//     }
-//     ];
+    const pokedex = [{
+        id: 4,
+        quantity: 6,
+    },
+    {
+        id: 7,
+        quantity: 3,
+    }
+    ];
 
-//     const stringyDex = JSON.stringify(pokeDexBefore);
-//     localStorage.setItem('SEEN', stringyDex);
+    setPokedex(pokedex);
 
-//     setPokedex(7, 1);
+    const stringyDex = localStorage.getItem('POKEDEX');
+    const actual = JSON.parse(stringyDex);
+    expect.deepEqual(actual, expected);
+});
 
-//     stringypokeDexAfter = localStorage.getItem('SEEN');
-//     const actual = JSON.parse(stringypokeDexAfter);
+test('getPokedex should take a string from local storage and return the parsed object', (expect) => {
+    const expected = [{
+        id: 4,
+        quantity: 6,
+    }];
 
-//     expect.deepEqual(actual, pokeDexAfter);
-// });
+    const expectedStringy = JSON.stringify(expected);
+
+    localStorage.setItem('POKEDEX', expectedStringy);
+
+    const actual = getPokedex();
+
+    expect.deepEqual(actual, expected);
+});
