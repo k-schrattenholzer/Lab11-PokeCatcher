@@ -42,7 +42,7 @@ main {
     background-color: var(--color4 );
     border-top: double 10px var(--color6);
     border-bottom: double 10px var(--color6);
-    padding: 0px;
+    padding: 20px;
     margin: 0px;
 }
 
@@ -86,6 +86,7 @@ img {
     padding:20px;
     margin: 5px;
     justify-content: center;
+    width: 200px;
 }
 
 
@@ -127,12 +128,12 @@ footer {
     box-shadow: var(--shadow);
 }
 
-button {
+#catch-button {
     margin: 25px;
     border-radius: 15px;
     transition: all ease-in-out .1s;
 }
-button:hover {
+#catch-button:hover {
     background-color: goldenrod;
     transform: scale(1.2);
 

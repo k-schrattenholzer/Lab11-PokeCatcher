@@ -1,7 +1,14 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { getPokedex } from '../utils.js';
 
+const homeButton = document.getElementById('home-button');
+
+
+homeButton.addEventListener('click', () => {
+    window.location.href = '../index.html';
+});
+
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 
 const ctx1 = document.getElementById('pokeEncounters');
 const ctx2 = document.getElementById('pokesCaught');
