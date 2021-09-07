@@ -4,5 +4,7 @@
         "Pokedex",
         "pokemons"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    // "synthwave84.brightness": 1,
+    // "powermode.enabled": true
 }

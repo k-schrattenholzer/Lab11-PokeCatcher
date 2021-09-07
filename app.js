@@ -13,7 +13,6 @@ for (let pokies of threePokeBabies) {
 }
 
 
-
 catchButton.addEventListener('click', () => {
     // console.log(pokeEncounters);
     pokeEncounters = pokeEncounters + 1;
